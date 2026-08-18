@@ -1,4 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#275C3B"/>
-  <path d="M32 10 C32 10 18 30 18 40 a14 14 0 0 0 28 0 C46 30 32 10 32 10 Z" fill="#F7F3E8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- ISUBA-Emblem: Ring, gebogener Schriftzug, Ährenkranz, Kuhkopf -->
+  <circle cx="50" cy="50" r="48" fill="#FFFFFF"/>
+  <circle cx="50" cy="50" r="45.5" fill="none" stroke="#2B2B2B" stroke-width="3"/>
+  <defs>
+    <path id="bogen" d="M19 52 A31 31 0 0 1 81 52" fill="none"/>
+  </defs>
+  <text font-family="'Nunito Sans', Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="2.5" fill="#2B2B2B">
+    <textPath href="#bogen" startOffset="50%" text-anchor="middle">ISUBA</textPath>
+  </text>
+  <g fill="#8DC63F">
+    <ellipse cx="50" cy="82" rx="5.5" ry="2.2" transform="rotate(-100 50 56)"/>
+    <ellipse cx="50" cy="82" rx="5.5" ry="2.2" transform="rotate(-75 50 56)"/>
+    <ellipse cx="50" cy="82" rx="5.5" ry="2.2" transform="rotate(-50 50 56)"/>
+    <ellipse cx="50" cy="82" rx="5.5" ry="2.2" transform="rotate(-25 50 56)"/>
+    <ellipse cx="50" cy="82" rx="5.5" ry="2.2"/>
+    <ellipse cx="50" cy="82" rx="5.5" ry="2.2" transform="rotate(25 50 56)"/>
+    <ellipse cx="50" cy="82" rx="5.5" ry="2.2" transform="rotate(50 50 56)"/>
+    <ellipse cx="50" cy="82" rx="5.5" ry="2.2" transform="rotate(75 50 56)"/>
+    <ellipse cx="50" cy="82" rx="5.5" ry="2.2" transform="rotate(100 50 56)"/>
+  </g>
+  <g>
+    <ellipse cx="36" cy="48" rx="7" ry="3.2" fill="#2B2B2B" transform="rotate(-12 36 48)"/>
+    <ellipse cx="64" cy="48" rx="7" ry="3.2" fill="#2B2B2B" transform="rotate(12 64 48)"/>
+    <path d="M40 44 C43 38.5 57 38.5 60 44 C62 50 57.5 60 54.5 64.5 C52.3 67.5 47.7 67.5 45.5 64.5 C42.5 60 38 50 40 44 Z" fill="#2B2B2B"/>
+    <ellipse cx="50" cy="61.5" rx="7" ry="4.6" fill="#FFFFFF"/>
+    <ellipse cx="47.2" cy="61.5" rx="1.4" ry="2" fill="#2B2B2B"/>
+    <ellipse cx="52.8" cy="61.5" rx="1.4" ry="2" fill="#2B2B2B"/>
+  </g>
 </svg>

@@ -298,7 +298,7 @@
     ];
     return `
     <div class="table-wrap"><table>
-      <thead><tr><th>Kennzahl</th><th class="num">${anonym ? "Ihr Betrieb" : esc(b.name)}</th><th class="num">Ø alle Betriebe</th><th class="num">Bester Wert</th></tr></thead>
+      <thead><tr><th>Kennzahl</th><th class="num">${anonym ? "Dein Betrieb" : esc(b.name)}</th><th class="num">Ø alle Betriebe</th><th class="num">Bester Wert</th></tr></thead>
       <tbody>
         ${kennzahlen.map(k => {
           let pill = "";
@@ -451,6 +451,7 @@
 
   const RASSEN = ["Fleckvieh", "Holstein", "Braunvieh", "Pinzgauer", "Jersey", "Grauvieh", "gemischt"];
   const SYSTEME = ["TMR", "AGR", "AGR + Transponder", "Heumilch, AGR", "Vollweide", "Mutterkuh", "sonstiges"];
+  const MELKSYSTEME = ["Rohrmelkanlage", "Fischgräten-Melkstand", "Side-by-Side-Melkstand", "Melkkarussell", "AMS Lely", "AMS GEA", "AMS DeLaval", "AMS Boumatic"];
 
   function viewBetriebForm(id) {
     const b = id ? BETRIEBE.find(x => x.id === id) : null;
@@ -488,6 +489,8 @@
           <select id="b-system">${auswahl(SYSTEME, wert("system", "AGR") || "AGR")}</select></div>
       </div>
       <div class="field-row">
+        <div class="field"><label for="b-melk">Melksystem</label>
+          <select id="b-melk">${auswahl(MELKSYSTEME, wert("melksystem", "Fischgräten-Melkstand") || "Fischgräten-Melkstand")}</select></div>
         <div class="field"><label for="b-ziel">Ziel Milch kg/Kuh/Tag</label>
           <input id="b-ziel" type="number" min="5" max="60" value="${esc(wert("zielMilch", 28))}"></div>
         <div class="field"><label for="b-besuch">Nächster Besuch</label>
@@ -513,6 +516,7 @@
         kuehe: parseInt($("#b-kuehe").value, 10) || 0,
         rasse: $("#b-rasse").value,
         system: $("#b-system").value,
+        melksystem: $("#b-melk").value,
         zielMilch: parseFloat($("#b-ziel").value) || 28,
         naechsterBesuch: $("#b-besuch").value || null
       };
@@ -552,7 +556,7 @@
     <div class="page-head">
       <div>
         <h1>${esc(b.name)}</h1>
-        <p>${esc(b.leiter)} · ${esc(b.ort)} · ${b.kuehe} ${esc(b.rasse)}-Kühe · ${esc(b.system)}
+        <p>${esc(b.leiter)} · ${esc(b.ort)} · ${b.kuehe} ${esc(b.rasse)}-Kühe · ${esc(b.system)}${b.melksystem ? " · " + esc(b.melksystem) : ""}
         ${b.telefon ? ` · <a href="tel:${esc(b.telefon.replace(/\s/g, ""))}">${esc(b.telefon)}</a>` : ""}</p>
       </div>
       <div class="tag-row">
@@ -584,7 +588,7 @@
     <div style="margin-bottom:16px">${chartsBlock(b)}</div>
 
     <div class="card" style="margin-bottom:16px">
-      <h3>Milchkontrolle nachtragen <small>Herdenschnitt aus dem LKV-Bericht</small></h3>
+      <h3>LKV-Milchkontrolle nachtragen <small>Herdenschnitt aus dem Tagesbericht — monatliche LKV-Auswertung</small></h3>
       <form id="mk-form">
         <div class="field-row">
           <div class="field"><label for="mk-monat">Monat</label><input id="mk-monat" value="${esc(aktMonat())}" required></div>
@@ -617,6 +621,7 @@
             </div>
             <p style="margin:0 0 6px">${esc(v.notizen)}</p>
             <p style="margin:0"><strong>Empfehlung:</strong> ${esc(v.empfehlungen)}</p>
+            ${v.technik ? `<p style="margin:6px 0 0"><strong>Technik/AMS:</strong> ${esc(v.technik)}</p>` : ""}
           </div>`).join("") : `<p class="small">Noch kein Besuch dokumentiert.</p>`}
         <a class="btn btn-sm" href="#/bericht?betrieb=${b.id}">Neuen Bericht erfassen</a>
       </div>
@@ -700,8 +705,8 @@
       <span class="pill pill-warn" style="margin-left:8px">Kundenansicht — so sieht es ${esc(b.leiter)}</span></div>
     <div class="page-head">
       <div>
-        <h1>Grüß Gott, ${esc(b.leiter)}!</h1>
-        <p>Ihr Betrieb ${esc(b.name)} bei ISUBA — alle Kennzahlen, Empfehlungen und Unterlagen an einem Ort.</p>
+        <h1>Grüß dich, ${esc(b.leiter)}!</h1>
+        <p>Dein Betrieb ${esc(b.name)} bei ISUBA — alle Kennzahlen, Empfehlungen und Unterlagen an einem Ort.</p>
       </div>
     </div>
 
@@ -709,14 +714,14 @@
       <div class="card">
         <h2>Nächster Beratungsbesuch</h2>
         <p style="font-family:var(--font-display);font-size:1.4rem;font-weight:700;margin:0 0 6px">${datum(b.naechsterBesuch)}</p>
-        <p class="small" style="margin:0 0 12px">Fragen vorab? Einfach melden — unabhängige Auskunft ohne Produktbindung.</p>
+        <p class="small" style="margin:0 0 12px">Fragen vorab? Meld dich einfach — unabhängige Auskunft ohne Produktbindung.</p>
         <div class="tag-row">
           <a class="btn btn-sm" href="mailto:schiffer@isuba.at">E-Mail an Isuba</a>
           <span class="pill pill-neutral">Anruf &amp; WhatsApp: im Echtbetrieb hinterlegt</span>
         </div>
       </div>
       <div class="card">
-        <h2>Ihre offenen Maßnahmen</h2>
+        <h2>Deine offenen Maßnahmen</h2>
         ${massnahmenListe(b, false)}
       </div>
     </div>
@@ -725,11 +730,11 @@
 
     <div class="grid grid-2" style="margin-bottom:16px">
       <div class="card">
-        <h2>Ihre aktuelle Ration <small>je Kuh und Tag</small></h2>
+        <h2>Deine aktuelle Ration <small>je Kuh und Tag</small></h2>
         ${rationTabelle(b)}
       </div>
       <div class="card">
-        <h2>Ihr Betrieb im Vergleich</h2>
+        <h2>Dein Betrieb im Vergleich</h2>
         ${benchmarkBlock(b, true)}
       </div>
     </div>
@@ -746,6 +751,7 @@
           </div>
           <p style="margin:0 0 6px">${esc(letzter.notizen)}</p>
           <p style="margin:0"><strong>Empfehlung:</strong> ${esc(letzter.empfehlungen)}</p>
+          ${letzter.technik ? `<p style="margin:6px 0 0"><strong>Technik/AMS:</strong> ${esc(letzter.technik)}</p>` : ""}
         </div>` : `<p class="small">Noch kein Besuch dokumentiert.</p>`}
       </div>
       <div class="card">
@@ -1031,6 +1037,8 @@
         <textarea id="f-notizen" rows="3" required placeholder="Was ist am Betrieb aufgefallen?"></textarea></div>
       <div class="field"><label for="f-empfehlung">Empfehlungen</label>
         <textarea id="f-empfehlung" rows="3" required placeholder="Konkrete nächste Schritte für den Betrieb"></textarea></div>
+      <div class="field"><label for="f-technik">Technik / AMS-Einstellungen <small>(optional)</small></label>
+        <textarea id="f-technik" rows="2" placeholder="z. B. Kraftfutterkurve am Melkroboter angepasst (Lely, GEA, DeLaval, Boumatic)"></textarea></div>
       <div class="field"><label for="f-naechster">Nächster Besuch</label>
         <input id="f-naechster" type="date"></div>
       <button type="submit">Bericht speichern</button>
@@ -1050,7 +1058,8 @@
         tsSilage: num("#f-ts"),
         schuettelbox: (ober != null && mittel != null && unten != null) ? { ober, mittel, unten } : null,
         notizen: $("#f-notizen").value.trim(),
-        empfehlungen: $("#f-empfehlung").value.trim()
+        empfehlungen: $("#f-empfehlung").value.trim(),
+        technik: $("#f-technik").value.trim() || null
       };
       const betrieb = BETRIEBE.find(x => x.id === $("#f-betrieb").value);
       betrieb.besuche.unshift(bericht);

@@ -1,52 +1,51 @@
 /* ISUBA Beraterapp — Design-Tokens
    ============================================================
-   ISUBA-BRANDING: Die Markenfarben stehen zentral in diesem
-   Block. Liegt die echte CI vor, hier --brand, --accent und
-   --bg tauschen — die ganze App zieht mit. Logo: Milchtropfen-
-   Marke in index.html und assets/icon.svg ersetzen.
+   ISUBA-CI (von isuba.at): helles Grau als Grund, dunkelgraue
+   Schrift, dunkles Textgrün als Marke, helles Kranzgrün als
+   Akzent, runde Sans (Nunito Sans). Logo: Kuhkopf-Emblem mit
+   Ährenkranz (index.html, assets/icon.svg).
    ============================================================
-   Fichtengrün + warmer Steingrund, Stroh-Gold als Akzent.
    Licht-Palette auf :root, Dunkel via prefers-color-scheme + data-theme. */
 
 :root {
-  --bg: #F6F5F0;
+  --bg: #ECECEA;
   --surface: #FFFFFF;
-  --surface-2: #EFEEE6;
-  --ink: #22301F;
-  --muted: #6B7264;
-  --line: #DDDCD2;
-  --brand: #275C3B;
-  --brand-ink: #F7F3E8;
-  --brand-soft: #E2ECE0;
-  --accent: #B77F1F;
-  --accent-soft: #F4E9D2;
-  --ok: #3A7D44;
-  --ok-soft: #E1EFE3;
+  --surface-2: #E3E3E0;
+  --ink: #3E4440;
+  --muted: #757B76;
+  --line: #D7D7D3;
+  --brand: #4E7B2F;
+  --brand-ink: #FFFFFF;
+  --brand-soft: #E5EFDA;
+  --accent: #8DC63F;
+  --accent-soft: #EDF5DE;
+  --ok: #4E7B2F;
+  --ok-soft: #E5EFDA;
   --warn: #B3730E;
   --warn-soft: #F6EAD2;
   --crit: #B3402E;
   --crit-soft: #F6E0DB;
-  --shadow: 0 1px 3px rgba(34, 48, 31, 0.08), 0 4px 16px rgba(34, 48, 31, 0.05);
+  --shadow: 0 1px 3px rgba(43, 43, 43, 0.08), 0 4px 16px rgba(43, 43, 43, 0.05);
   --radius: 10px;
-  --font-display: "Archivo", "Segoe UI", system-ui, sans-serif;
-  --font-body: "Instrument Sans", "Helvetica Neue", system-ui, sans-serif;
+  --font-display: "Nunito Sans", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Nunito Sans", "Helvetica Neue", system-ui, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #171A15;
-    --surface: #21261E;
-    --surface-2: #2A3026;
-    --ink: #E7EAE1;
-    --muted: #9AA192;
-    --line: #38402F;
-    --brand: #7FAE85;
-    --brand-ink: #131A12;
-    --brand-soft: #2A382B;
-    --accent: #D9A94F;
-    --accent-soft: #3A311C;
-    --ok: #7CB886;
-    --ok-soft: #263B29;
+    --bg: #191B19;
+    --surface: #242724;
+    --surface-2: #2D312D;
+    --ink: #E5E8E4;
+    --muted: #9BA19B;
+    --line: #3B403B;
+    --brand: #A2CE68;
+    --brand-ink: #1B2410;
+    --brand-soft: #2E3A22;
+    --accent: #8DC63F;
+    --accent-soft: #333D22;
+    --ok: #A2CE68;
+    --ok-soft: #2E3A22;
     --warn: #DCA349;
     --warn-soft: #3D311E;
     --crit: #DE7C64;
@@ -56,19 +55,19 @@
 }
 
 :root[data-theme="dark"] {
-  --bg: #171A15;
-  --surface: #21261E;
-  --surface-2: #2A3026;
-  --ink: #E7EAE1;
-  --muted: #9AA192;
-  --line: #38402F;
-  --brand: #7FAE85;
-  --brand-ink: #131A12;
-  --brand-soft: #2A382B;
-  --accent: #D9A94F;
-  --accent-soft: #3A311C;
-  --ok: #7CB886;
-  --ok-soft: #263B29;
+  --bg: #191B19;
+  --surface: #242724;
+  --surface-2: #2D312D;
+  --ink: #E5E8E4;
+  --muted: #9BA19B;
+  --line: #3B403B;
+  --brand: #A2CE68;
+  --brand-ink: #1B2410;
+  --brand-soft: #2E3A22;
+  --accent: #8DC63F;
+  --accent-soft: #333D22;
+  --ok: #A2CE68;
+  --ok-soft: #2E3A22;
   --warn: #DCA349;
   --warn-soft: #3D311E;
   --crit: #DE7C64;
@@ -108,28 +107,30 @@ small, .small { font-size: 0.82rem; color: var(--muted); }
   display: none;
   align-items: center;
   gap: 10px;
-  background: var(--brand);
-  color: var(--brand-ink);
-  padding: 10px 14px;
-  padding-top: calc(10px + env(safe-area-inset-top, 0px));
+  background: var(--surface);
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding: 8px 14px;
+  padding-top: calc(8px + env(safe-area-inset-top, 0px));
   position: sticky;
   top: 0;
   z-index: 20;
 }
-.appbar-mark { width: 26px; height: 26px; flex: none; }
+.appbar-mark { width: 34px; height: 34px; flex: none; }
 .appbar-wort { flex: 1; line-height: 1.15; }
 .appbar-wort strong {
   font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--brand);
   display: block;
 }
-.appbar-wort small { font-size: 0.68rem; opacity: 0.85; color: inherit; }
+.appbar-wort small { font-size: 0.66rem; color: var(--muted); }
 .appbar-reset {
   background: transparent;
-  border: 1px solid rgba(247, 243, 232, 0.4);
-  color: var(--brand-ink);
+  border: 1px solid var(--line);
+  color: var(--muted);
   width: 38px;
   height: 38px;
   padding: 0;
@@ -164,21 +165,14 @@ small, .small { font-size: 0.82rem; color: var(--muted); }
   gap: 10px;
   padding: 0 8px;
 }
-.logo-mark {
-  display: grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 9px;
-  background: var(--brand);
-  color: var(--brand-ink);
-}
-.logo-mark svg { width: 22px; height: 22px; }
+.logo-badge { color: var(--ink); flex: none; }
+.logo .logo-badge { width: 42px; height: 42px; }
 .logo strong {
   font-family: var(--font-display);
   font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--brand);
   display: block;
 }
 .logo small { display: block; line-height: 1.3; }

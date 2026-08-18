@@ -48,7 +48,7 @@ const BETRIEBE = [
   {
     id: "b01", name: "Bergerhof", leiter: "Familie Berger", ort: "Freistadt, OÖ",
     kuehe: 42, rasse: "Fleckvieh", system: "AGR + Transponder", zielMilch: 28,
-    telefon: "+43 664 1111111",
+    melksystem: "Fischgräten-Melkstand", telefon: "+43 664 1111111",
     letzterBesuch: "2026-07-28", naechsterBesuch: "2026-10-12",
     analysen: {},
     massnahmen: [
@@ -78,7 +78,7 @@ const BETRIEBE = [
   {
     id: "b02", name: "Lindmoser", leiter: "Anna und Georg Lindmoser", ort: "Zwettl, NÖ",
     kuehe: 65, rasse: "Fleckvieh", system: "TMR", zielMilch: 32,
-    telefon: "+43 664 2222222",
+    melksystem: "AMS Lely", telefon: "+43 664 2222222",
     letzterBesuch: "2026-08-05", naechsterBesuch: "2026-11-02",
     analysen: { grassilage1: { tm: 36, nel: 6.4, nxp: 138, rp: 168 } },
     massnahmen: [
@@ -99,13 +99,14 @@ const BETRIEBE = [
     besuche: [
       { datum: "2026-08-05", bcs: 3.2, schuettelbox: { ober: 8, mittel: 45, unten: 47 }, kotscore: 3.1, tsSilage: 33,
         notizen: "TMR sehr homogen, kaum Selektion am Futtertisch. Herde in bester Verfassung.",
-        empfehlungen: "Sojaanteil testweise um 0,3 kg senken — Preiswürdigkeit spricht aktuell für Raps." }
+        empfehlungen: "Sojaanteil testweise um 0,3 kg senken — Preiswürdigkeit spricht aktuell für Raps.",
+        technik: "AMS Lely: Kraftfutter-Startmenge Frischlaktierende von 3,0 auf 2,6 kg gesenkt, Steigerung 0,2 kg/Tag — Restfutter am Roboter war zu hoch." }
     ]
   },
   {
     id: "b03", name: "Hoarachhof", leiter: "Familie Wieser", ort: "Tamsweg, Sbg",
     kuehe: 24, rasse: "Pinzgauer", system: "Heumilch, AGR", zielMilch: 22,
-    telefon: "+43 664 3333333",
+    melksystem: "Rohrmelkanlage", telefon: "+43 664 3333333",
     letzterBesuch: "2026-06-18", naechsterBesuch: "2026-09-08",
     analysen: {},
     massnahmen: [
@@ -132,7 +133,7 @@ const BETRIEBE = [
   {
     id: "b04", name: "Steinbauer", leiter: "Markus Steinbauer", ort: "Hartberg, Stmk",
     kuehe: 78, rasse: "Holstein", system: "TMR", zielMilch: 36,
-    telefon: "+43 664 4444444",
+    melksystem: "AMS GEA", telefon: "+43 664 4444444",
     letzterBesuch: "2026-08-11", naechsterBesuch: "2026-09-22",
     analysen: { maissilage: { tm: 32, nel: 6.7, nxp: 133, rp: 78 } },
     massnahmen: [
@@ -161,7 +162,7 @@ const BETRIEBE = [
   {
     id: "b05", name: "Grubergut", leiter: "Familie Gruber", ort: "Rohrbach, OÖ",
     kuehe: 35, rasse: "Fleckvieh", system: "AGR", zielMilch: 26,
-    telefon: "+43 664 5555555",
+    melksystem: "Fischgräten-Melkstand", telefon: "+43 664 5555555",
     letzterBesuch: "2026-05-20", naechsterBesuch: "2026-08-25",
     analysen: {},
     massnahmen: [
@@ -187,7 +188,7 @@ const BETRIEBE = [
   {
     id: "b06", name: "Talerhof", leiter: "Familie Mairhofer", ort: "Kufstein, T",
     kuehe: 29, rasse: "Braunvieh", system: "AGR", zielMilch: 25,
-    telefon: "+43 664 6666666",
+    melksystem: "Melkkarussell", telefon: "+43 664 6666666",
     letzterBesuch: "2026-07-02", naechsterBesuch: "2026-08-19",
     analysen: {},
     massnahmen: [
@@ -244,6 +245,12 @@ const WISSEN = [
     teaser: "Die Körperkondition an vier Zeitpunkten erfassen — mehr braucht es nicht.",
     text: `<p>Entscheidend sind vier Zeitpunkte: <strong>Trockenstellen (BCS 3,25–3,5)</strong>, <strong>Abkalbung (3,25–3,5)</strong>, <strong>Laktationsspitze (nicht unter 2,5)</strong> und <strong>150. Laktationstag</strong>. Kühe, die zwischen Abkalbung und Spitze mehr als 0,75 Punkte verlieren, haben ein deutlich erhöhtes Ketose- und Fruchtbarkeitsrisiko.</p>
     <p>Verfettete Trockensteher (BCS über 4) sind der teuerste Fehler in der Fütterung — sie fressen nach der Kalbung schlechter und rutschen tiefer ins Energieloch.</p>`
+  },
+  {
+    id: "ams", titel: "Kraftfutter am Melkroboter richtig einstellen",
+    teaser: "Die Kraftfutterkurve am AMS entscheidet über Besuchsfrequenz, Pansen und Kosten.",
+    text: `<p>Am automatischen Melksystem (Lely, GEA, DeLaval, Boumatic) wird Kraftfutter tierindividuell zugeteilt — die Einstellungen werden aber oft jahrelang nicht angerührt. Drei Stellschrauben lohnen sich: <strong>Startmenge und Steigerung</strong> nach der Kalbung (zu schnell steigern belastet den Pansen), <strong>Maximalmenge je Besuch</strong> (mehr als 2–2,5 kg je Melkung kann die Kuh nicht sinnvoll aufnehmen — Restfutter ist verschenktes Geld) und die <strong>leistungsbezogene Kurve</strong>, die zur Grundration passen muss.</p>
+    <p>Faustregel: Erst die Mischration am Futtertisch sauber rechnen, dann das AMS-Kraftfutter nur für die Leistung darüber einsetzen. Bei jedem Rationswechsel gehören die Robotereinstellungen mitgeprüft — deshalb sind sie fixer Bestandteil des Besuchsberichts.</p>`
   },
   {
     id: "preiswuerdigkeit", titel: "Futterzukauf: Preiswürdigkeit statt Preis je Tonne",

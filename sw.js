@@ -1,5 +1,5 @@
 /* ISUBA — Service Worker: App-Shell offline verfügbar (Stall ohne Empfang) */
-const CACHE = "isuba-v1";
+const CACHE = "isuba-v2";
 const SHELL = ["./", "./index.html", "./css/style.css", "./js/data.js", "./js/app.js", "./assets/icon.svg", "./manifest.webmanifest"];
 
 self.addEventListener("install", (e) => {

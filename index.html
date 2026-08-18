@@ -5,25 +5,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Isuba Beraterapp</title>
 <meta name="description" content="Die App für unabhängige Milchviehfütterungs-Beratung: Betriebsakten, Futtermittelvergleich, Rationscheck und Besuchsberichte.">
-<meta name="theme-color" content="#275C3B">
+<meta name="theme-color" content="#FFFFFF">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Isuba">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="assets/icon.svg">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23275C3B'/%3E%3Cpath d='M32 10 C32 10 18 30 18 40 a14 14 0 0 0 28 0 C46 30 32 10 32 10 Z' fill='%23F7F3E8'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='white'/%3E%3Ccircle cx='50' cy='50' r='44' fill='none' stroke='%232B2B2B' stroke-width='5'/%3E%3Cg fill='%238DC63F'%3E%3Cellipse cx='50' cy='84' rx='7' ry='2.8' transform='rotate(-90 50 54)'/%3E%3Cellipse cx='50' cy='84' rx='7' ry='2.8' transform='rotate(-45 50 54)'/%3E%3Cellipse cx='50' cy='84' rx='7' ry='2.8'/%3E%3Cellipse cx='50' cy='84' rx='7' ry='2.8' transform='rotate(45 50 54)'/%3E%3Cellipse cx='50' cy='84' rx='7' ry='2.8' transform='rotate(90 50 54)'/%3E%3C/g%3E%3Cellipse cx='33' cy='42' rx='9' ry='4' fill='%232B2B2B' transform='rotate(-12 33 42)'/%3E%3Cellipse cx='67' cy='42' rx='9' ry='4' fill='%232B2B2B' transform='rotate(12 67 42)'/%3E%3Cpath d='M38 37 C42 30 58 30 62 37 C64.5 45 59 58 55.5 63.5 C52.7 67.5 47.3 67.5 44.5 63.5 C41 58 35.5 45 38 37 Z' fill='%232B2B2B'/%3E%3Cellipse cx='50' cy='59' rx='8.5' ry='5.6' fill='white'/%3E%3Cellipse cx='46.6' cy='59' rx='1.7' ry='2.4' fill='%232B2B2B'/%3E%3Cellipse cx='53.4' cy='59' rx='1.7' ry='2.4' fill='%232B2B2B'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header class="appbar">
-  <svg class="appbar-mark" viewBox="0 0 64 64" aria-hidden="true">
-    <path d="M32 10 C32 10 18 30 18 40 a14 14 0 0 0 28 0 C46 30 32 10 32 10 Z" fill="currentColor"/>
+  <svg class="appbar-mark logo-badge" viewBox="0 0 100 100" aria-hidden="true">
+    <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="5"/>
+    <g fill="#8DC63F">
+      <ellipse cx="50" cy="84" rx="7" ry="2.8" transform="rotate(-90 50 54)"/>
+      <ellipse cx="50" cy="84" rx="7" ry="2.8" transform="rotate(-45 50 54)"/>
+      <ellipse cx="50" cy="84" rx="7" ry="2.8"/>
+      <ellipse cx="50" cy="84" rx="7" ry="2.8" transform="rotate(45 50 54)"/>
+      <ellipse cx="50" cy="84" rx="7" ry="2.8" transform="rotate(90 50 54)"/>
+    </g>
+    <ellipse cx="33" cy="42" rx="9" ry="4" fill="currentColor" transform="rotate(-12 33 42)"/>
+    <ellipse cx="67" cy="42" rx="9" ry="4" fill="currentColor" transform="rotate(12 67 42)"/>
+    <path d="M38 37 C42 30 58 30 62 37 C64.5 45 59 58 55.5 63.5 C52.7 67.5 47.3 67.5 44.5 63.5 C41 58 35.5 45 38 37 Z" fill="currentColor"/>
+    <ellipse cx="50" cy="59" rx="8.5" ry="5.6" fill="var(--surface, #fff)"/>
+    <ellipse cx="46.6" cy="59" rx="1.7" ry="2.4" fill="currentColor"/>
+    <ellipse cx="53.4" cy="59" rx="1.7" ry="2.4" fill="currentColor"/>
   </svg>
   <div class="appbar-wort">
-    <strong>isuba</strong>
+    <strong>ISUBA</strong>
     <small>Unabhängige Fütterungsberatung</small>
   </div>
   <button type="button" class="demo-reset appbar-reset" title="Demo zurücksetzen" aria-label="Demo zurücksetzen">↺</button>
@@ -33,11 +46,24 @@
 
   <aside class="sidenav">
     <div class="logo">
-      <span class="logo-mark">
-        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 10 C32 10 18 30 18 40 a14 14 0 0 0 28 0 C46 30 32 10 32 10 Z" fill="currentColor"/></svg>
-      </span>
+      <svg class="logo-badge" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="5"/>
+        <g fill="#8DC63F">
+          <ellipse cx="50" cy="84" rx="7" ry="2.8" transform="rotate(-90 50 54)"/>
+          <ellipse cx="50" cy="84" rx="7" ry="2.8" transform="rotate(-45 50 54)"/>
+          <ellipse cx="50" cy="84" rx="7" ry="2.8"/>
+          <ellipse cx="50" cy="84" rx="7" ry="2.8" transform="rotate(45 50 54)"/>
+          <ellipse cx="50" cy="84" rx="7" ry="2.8" transform="rotate(90 50 54)"/>
+        </g>
+        <ellipse cx="33" cy="42" rx="9" ry="4" fill="currentColor" transform="rotate(-12 33 42)"/>
+        <ellipse cx="67" cy="42" rx="9" ry="4" fill="currentColor" transform="rotate(12 67 42)"/>
+        <path d="M38 37 C42 30 58 30 62 37 C64.5 45 59 58 55.5 63.5 C52.7 67.5 47.3 67.5 44.5 63.5 C41 58 35.5 45 38 37 Z" fill="currentColor"/>
+        <ellipse cx="50" cy="59" rx="8.5" ry="5.6" fill="var(--surface, #fff)"/>
+        <ellipse cx="46.6" cy="59" rx="1.7" ry="2.4" fill="currentColor"/>
+        <ellipse cx="53.4" cy="59" rx="1.7" ry="2.4" fill="currentColor"/>
+      </svg>
       <div>
-        <strong>isuba</strong>
+        <strong>ISUBA</strong>
         <small>Unabhängige Fütterungsberatung</small>
       </div>
     </div>

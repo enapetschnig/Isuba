@@ -49,10 +49,10 @@ Die App ist primär für das Handy gebaut — dort, wo Beratung stattfindet: im 
 
 ## Branding
 
-Die App trägt ein eigenständiges **Isuba-Branding v1**: Milchtropfen-Marke, Wortmarke „isuba", Fichtengrün `#275C3B` auf warmem Steingrund, Stroh-Gold als Akzent. Da die Original-CI von isuba.at aus dieser Umgebung nicht abrufbar war, ist das Branding bewusst zentral austauschbar:
+Die App folgt der **CI von isuba.at**: helles Grau als Grund, dunkelgraue Schrift, dunkles Textgrün (`#4E7B2F`) als Marke und das helle Kranzgrün (`#8DC63F`) als Akzent, runde Sans-Schrift (Nunito Sans), Du-Form im Kundenportal. Das runde Emblem (Ring, gebogener ISUBA-Schriftzug, Kuhkopf im Ährenkranz) ist als SVG nachgebaut — angelehnt an das Original. Für den Feinschliff kann die Original-Logodatei einfach eingesetzt werden:
 
 - **Farben**: ein Token-Block am Anfang von `css/style.css` (`--brand`, `--accent`, `--bg` …) — einmal tauschen, die ganze App zieht mit
-- **Logo**: Milchtropfen-SVG in `index.html` (2 Stellen) und `assets/icon.svg` ersetzen
+- **Logo**: SVG-Emblem in `index.html` (2 Stellen) und `assets/icon.svg` ersetzen
 
 ## Technik
 

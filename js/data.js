@@ -48,7 +48,13 @@ const BETRIEBE = [
   {
     id: "b01", name: "Bergerhof", leiter: "Familie Berger", ort: "Freistadt, OÖ",
     kuehe: 42, rasse: "Fleckvieh", system: "AGR + Transponder", zielMilch: 28,
+    telefon: "+43 664 1111111",
     letzterBesuch: "2026-07-28", naechsterBesuch: "2026-10-12",
+    analysen: {},
+    massnahmen: [
+      { id: "m01", text: "Rapsschrot von 1,8 auf 1,2 kg reduzieren, 0,5 kg Körnermais ergänzen", quelle: "Besuch 28.07.2026", angelegt: "2026-07-28", erledigt: false },
+      { id: "m02", text: "Harnstoffwert bei nächster Milchkontrolle prüfen", quelle: "Besuch 28.07.2026", angelegt: "2026-07-28", erledigt: false }
+    ],
     milchkontrollen: [
       { monat: "Mär", milch: 26.8, fett: 4.21, eiweiss: 3.48, harnstoff: 24, zellzahl: 148 },
       { monat: "Apr", milch: 27.4, fett: 4.15, eiweiss: 3.45, harnstoff: 26, zellzahl: 132 },
@@ -72,7 +78,12 @@ const BETRIEBE = [
   {
     id: "b02", name: "Lindmoser", leiter: "Anna und Georg Lindmoser", ort: "Zwettl, NÖ",
     kuehe: 65, rasse: "Fleckvieh", system: "TMR", zielMilch: 32,
+    telefon: "+43 664 2222222",
     letzterBesuch: "2026-08-05", naechsterBesuch: "2026-11-02",
+    analysen: { grassilage1: { tm: 36, nel: 6.4, nxp: 138, rp: 168 } },
+    massnahmen: [
+      { id: "m03", text: "Sojaanteil testweise um 0,3 kg senken (Preiswürdigkeit Raps)", quelle: "Besuch 05.08.2026", angelegt: "2026-08-05", erledigt: true, erledigtAm: "2026-08-12" }
+    ],
     milchkontrollen: [
       { monat: "Mär", milch: 31.2, fett: 4.05, eiweiss: 3.52, harnstoff: 22, zellzahl: 118 },
       { monat: "Apr", milch: 31.8, fett: 4.01, eiweiss: 3.50, harnstoff: 23, zellzahl: 109 },
@@ -94,7 +105,13 @@ const BETRIEBE = [
   {
     id: "b03", name: "Hoarachhof", leiter: "Familie Wieser", ort: "Tamsweg, Sbg",
     kuehe: 24, rasse: "Pinzgauer", system: "Heumilch, AGR", zielMilch: 22,
+    telefon: "+43 664 3333333",
     letzterBesuch: "2026-06-18", naechsterBesuch: "2026-09-08",
+    analysen: {},
+    massnahmen: [
+      { id: "m04", text: "Ackerbohnen auf 1,5 kg erhöhen oder 0,5 kg Rapskuchen ergänzen", quelle: "Besuch 18.06.2026", angelegt: "2026-06-18", erledigt: false },
+      { id: "m05", text: "Zellzahl beobachten — Einzeltiere über 400.000 schalmen", quelle: "Besuch 18.06.2026", angelegt: "2026-06-18", erledigt: false }
+    ],
     milchkontrollen: [
       { monat: "Mär", milch: 20.4, fett: 4.02, eiweiss: 3.31, harnstoff: 18, zellzahl: 187 },
       { monat: "Apr", milch: 21.0, fett: 3.98, eiweiss: 3.30, harnstoff: 17, zellzahl: 195 },
@@ -115,7 +132,14 @@ const BETRIEBE = [
   {
     id: "b04", name: "Steinbauer", leiter: "Markus Steinbauer", ort: "Hartberg, Stmk",
     kuehe: 78, rasse: "Holstein", system: "TMR", zielMilch: 36,
+    telefon: "+43 664 4444444",
     letzterBesuch: "2026-08-11", naechsterBesuch: "2026-09-22",
+    analysen: { maissilage: { tm: 32, nel: 6.7, nxp: 133, rp: 78 } },
+    massnahmen: [
+      { id: "m06", text: "Strohanteil auf 0,8 kg erhöhen, Häcksellänge kontrollieren", quelle: "Besuch 11.08.2026", angelegt: "2026-08-11", erledigt: false },
+      { id: "m07", text: "Körnermais um 0,5 kg zurücknehmen", quelle: "Besuch 11.08.2026", angelegt: "2026-08-11", erledigt: false },
+      { id: "m08", text: "Telefonat zur Kontrolle in KW 35", quelle: "Besuch 11.08.2026", angelegt: "2026-08-11", erledigt: false }
+    ],
     milchkontrollen: [
       { monat: "Mär", milch: 34.8, fett: 3.82, eiweiss: 3.32, harnstoff: 25, zellzahl: 142 },
       { monat: "Apr", milch: 35.4, fett: 3.74, eiweiss: 3.30, harnstoff: 26, zellzahl: 138 },
@@ -137,7 +161,12 @@ const BETRIEBE = [
   {
     id: "b05", name: "Grubergut", leiter: "Familie Gruber", ort: "Rohrbach, OÖ",
     kuehe: 35, rasse: "Fleckvieh", system: "AGR", zielMilch: 26,
+    telefon: "+43 664 5555555",
     letzterBesuch: "2026-05-20", naechsterBesuch: "2026-08-25",
+    analysen: {},
+    massnahmen: [
+      { id: "m09", text: "Angebot für Einzelkomponenten (Gerste + Raps) statt MLF einholen", quelle: "Besuch 20.05.2026", angelegt: "2026-05-20", erledigt: false }
+    ],
     milchkontrollen: [
       { monat: "Mär", milch: 24.6, fett: 4.35, eiweiss: 3.42, harnstoff: 21, zellzahl: 165 },
       { monat: "Apr", milch: 25.1, fett: 4.31, eiweiss: 3.44, harnstoff: 22, zellzahl: 158 },
@@ -158,7 +187,13 @@ const BETRIEBE = [
   {
     id: "b06", name: "Talerhof", leiter: "Familie Mairhofer", ort: "Kufstein, T",
     kuehe: 29, rasse: "Braunvieh", system: "AGR", zielMilch: 25,
+    telefon: "+43 664 6666666",
     letzterBesuch: "2026-07-02", naechsterBesuch: "2026-08-19",
+    analysen: {},
+    massnahmen: [
+      { id: "m10", text: "Frischlaktierende auf 3 kg Gerste über Transponder", quelle: "Besuch 02.07.2026", angelegt: "2026-07-02", erledigt: true, erledigtAm: "2026-07-06" },
+      { id: "m11", text: "Biertreber auf Nacherwärmung prüfen (Sommer!)", quelle: "Besuch 02.07.2026", angelegt: "2026-07-02", erledigt: false }
+    ],
     milchkontrollen: [
       { monat: "Mär", milch: 23.9, fett: 4.12, eiweiss: 3.55, harnstoff: 26, zellzahl: 122 },
       { monat: "Apr", milch: 24.3, fett: 4.10, eiweiss: 3.54, harnstoff: 27, zellzahl: 119 },

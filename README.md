@@ -1,46 +1,61 @@
 # Isuba Beraterapp
 
-Web-App für [ISUBA](https://www.isuba.at/) — die unabhängige Milchviehfütterungs-Beratung von Ing. Jonas Schiffer. Die App digitalisiert die Beratungsarbeit für rund **200 Kundenbetriebe**: jeder Betrieb bekommt eine eigene Akte mit Kennzahlen, Rationen und Besuchsberichten, dazu Rechenwerkzeuge, die den Kern der unabhängigen Beratung abbilden.
+Web-App für [ISUBA](https://www.isuba.at/) — die unabhängige Milchviehfütterungs-Beratung von Ing. Jonas Schiffer. Die App digitalisiert die Beratungsarbeit für rund **200 Abokunden**: jeder Betrieb bekommt eine eigene Akte mit Kennzahlen, Rationen, Maßnahmen und Besuchsberichten — und ein eigenes **Kundenportal**, das den laufenden Mehrwert des Beratungsabos sichtbar macht.
 
-## Warum diese App?
+Der Funktionsumfang orientiert sich an dem, was Isuba heute leistet (Vor-Ort-Besuche mit schriftlicher Zusammenfassung, BCS, Schüttelbox, Kotscreening, TS-Bestimmung, produktunabhängige Empfehlungen) und an dem, was führende Fütterungsberater zusätzlich anbieten: monatliches Fütterungscontrolling mit Futterkosten und IOFC, Silomanagement mit Analysen, Benchmarking über viele Betriebe und Rationsberechnung.
 
-Isubas Alleinstellung ist die **Unabhängigkeit**: keine Produktbindung, Empfehlungen rein nach Nutzen für den Betrieb. Genau das bilden die Werkzeuge ab:
+## Funktionen
 
-1. **Futtermittelvergleich (Preiswürdigkeit)** — das Herzstück. Nach dem Austauschverfahren (Löhr) wird aus den Preisen zweier Referenzfutter (Gerste für Energie, Sojaschrot für Protein) ein Energie- und Proteinpreis errechnet. Daraus ergibt sich für jedes Futtermittel ein *innerer Wert* — liegt der Marktpreis darunter, ist der Zukauf preiswürdig. Preise sind direkt in der Tabelle editierbar und werden lokal gespeichert. Das ist das stärkste Argument eines unabhängigen Beraters gegenüber dem Werksvertreter.
-2. **Betriebsakte je Kunde** — Stammdaten, Milchkontroll-Verläufe (Milch, Harnstoff, Fett-Eiweiß-Quotient, Zellzahl) als Charts mit Zielbändern, aktuelle Ration mit Nährstoffsummen und Futterkosten je kg Milch, komplette Besuchshistorie.
-3. **Automatische Auffälligkeiten** — die App wertet die letzte Milchkontrolle jedes Betriebs aus und warnt: Harnstoff außerhalb 15–30 mg, Fett-Eiweiß-Quotient über 1,5 (Ketoserisiko) oder unter 1,1 (Azidoserisiko), Zellzahl über 200.000, überfällige Besuchstermine. Der Berater sieht morgens auf einen Blick, welcher der 200 Betriebe Aufmerksamkeit braucht.
-4. **Rationscheck** — schnelle Plausibilitätskontrolle je Kuh und Tag: NEL-, nXP- und TM-Deckung in Prozent, ruminale N-Bilanz, Futterkosten je kg Milch. Bewusst als Schnellcheck ausgelegt, nicht als Ersatz für die vollständige Rationsberechnung.
-5. **Besuchsbericht-Formular** — direkt im Stall erfassen, was Isuba heute händisch dokumentiert: BCS, Schüttelbox (3 Siebe), Kotscore, TS-Bestimmung, Beobachtungen und Empfehlungen. Der Bericht landet sofort in der Betriebsakte.
-6. **Wissensbereich** — kompakte Praxistexte (Harnstoff lesen, Fett-Eiweiß-Quotient, Schüttelbox, TS-Bestimmung, BCS, Preiswürdigkeit) im Stil des Buchs „1×1 der Milchviehfütterung".
+### Für den Berater
+
+1. **Übersicht (Dashboard)** — Auffälligkeiten aus der jeweils letzten Milchkontrolle aller Betriebe (Harnstoff außerhalb 15–30 mg, Fett-Eiweiß-Quotient über 1,5 = Ketoserisiko bzw. unter 1,1 = Azidoserisiko, Zellzahl über 200.000, überfällige Termine), anstehende Besuche, alle offenen Maßnahmen. Morgens auf einen Blick: Welcher der 200 Betriebe braucht Aufmerksamkeit?
+2. **Kundenverwaltung** — neuen Betrieb in einer Minute anlegen (Stammdaten, Rasse, Fütterungssystem, Ziel-Milchleistung, Besuchstermin), bearbeiten, löschen. Milchkontrollen direkt in der Betriebsakte nachtragen.
+3. **Betriebsakte je Kunde** — Kennzahlen-Verläufe als Charts mit Zielbändern, aktuelle Ration mit Nährstoffsummen und Futterkosten je kg Milch, Besuchshistorie, Maßnahmen-Verfolgung, Benchmark.
+4. **Futtermittelvergleich (Preiswürdigkeit)** — das Herzstück der unabhängigen Beratung. Nach dem Austauschverfahren (Löhr) wird aus den Preisen zweier Referenzfutter (Gerste für Energie, Sojaschrot für Protein) ein Energie- und Proteinpreis errechnet; daraus ergibt sich für jedes Futtermittel ein *innerer Wert*. Liegt der Marktpreis darunter, ist der Zukauf preiswürdig. Preise direkt in der Tabelle editierbar.
+5. **Rationscheck mit IOFC** — NEL-, nXP- und TM-Deckung in Prozent, ruminale N-Bilanz, Futterkosten je kg Milch und **Income over feed cost** (Milcherlös minus Futterkosten) — die zentrale Steuergröße im Fütterungscontrolling. Eine Ration lässt sich direkt als aktuelle Ration eines Betriebs speichern.
+6. **Betriebseigene Futteranalysen** — Laborwerte der eigenen Silagen (TS, NEL, nXP, XP) je Betrieb hinterlegen; Rationsbewertung und Futterkosten rechnen dann mit den echten Werten statt mit Tabellenwerten.
+7. **Besuchsbericht im Stall erfassen** — BCS, Schüttelbox, Kotscore, TS, Beobachtungen, Empfehlungen, nächster Termin. Die Empfehlung wird automatisch als offene Maßnahme angelegt.
+
+### Für den Abokunden (Kundenportal)
+
+Jede Betriebsakte hat eine **Kundenansicht** (in der Demo über „👁 Kundenansicht" erreichbar) — das, was der Abokunde nach dem Login sieht:
+
+- **Nächster Besuchstermin** und direkter Draht zum Berater
+- **Offene Maßnahmen** zum Abhaken — der Kunde sieht jederzeit, was vereinbart wurde, und der Berater sieht, was umgesetzt ist. Das schließt die Lücke zwischen zwei Besuchen.
+- **Eigene Kennzahlen** als Verläufe mit Zielbändern — verständlich statt Zahlenfriedhof
+- **Aktuelle Ration** mit Futterkosten je kg Milch
+- **Benchmark**: der eigene Betrieb anonym im Vergleich zu allen Isuba-Betrieben — das kann kein einzelner Landwirt und kein Futtermittelverkäufer bieten, nur ein unabhängiger Berater mit 200 Betrieben
+- **Besuchsberichte** und **Fütterungswissen** zum Nachlesen
+
+**Warum das ein Abo trägt:** Der Kunde bekommt zwischen den 2–3 Besuchen pro Jahr laufend Gegenwert — Maßnahmen-Verfolgung, aktuelle Preiswürdigkeit beim Zukauf, Benchmark, verständliche Kennzahlen. Der Berater spart Zeit (Berichte einmal erfassen statt Mail-PDF, Kennzahlen automatisch überwacht) und skaliert seine Betreuungsqualität auf 200 Betriebe.
 
 ## Starten
 
 Kein Build nötig — statische Web-App ohne Abhängigkeiten:
 
 ```bash
-# Beliebiger statischer Server, z. B.:
-python3 -m http.server 8000
-# dann http://localhost:8000 öffnen
+python3 -m http.server 8000   # dann http://localhost:8000 öffnen
 ```
 
-Oder `index.html` direkt im Browser öffnen.
+Oder `index.html` direkt im Browser öffnen. Der Knopf **„Demo zurücksetzen"** unten in der Navigation verwirft alle lokalen Eingaben und lädt die Beispieldaten neu.
 
 ## Technik
 
 - **Stack**: HTML + CSS + Vanilla-JavaScript, keine Frameworks, kein Build-Schritt. Läuft auf jedem Handy im Stall (responsiv, mobile Tab-Bar), helles und dunkles Farbschema.
-- **Daten**: `js/data.js` enthält Futtermittel-Stammdaten (Nährwerte je kg TM, angelehnt an gängige Tabellenwerte wie die Gruber Tabelle), sechs Demo-Betriebe stellvertretend für die 200 Kunden sowie die Wissensbeiträge. Eigene Eingaben (Preise, Besuchsberichte) liegen im `localStorage`.
-- **Rechenlogik** in `js/app.js`: Rationssummen, Bedarf nach Faustzahlen (650-kg-Kuh: 37,7 MJ NEL + 3,3 MJ je kg Milch; 445 g nXP + 86 g je kg Milch), Austauschverfahren, Kennzahlen-Ampeln.
+- **Daten**: `js/data.js` enthält Futtermittel-Stammdaten (Nährwerte je kg TM, angelehnt an gängige Tabellenwerte wie die Gruber Tabelle), sechs Demo-Betriebe stellvertretend für die 200 Kunden sowie die Wissensbeiträge. Alle Eingaben (Betriebe, Milchkontrollen, Rationen, Berichte, Maßnahmen, Analysen, Preise) werden im `localStorage` gespeichert.
+- **Rechenlogik** in `js/app.js`: Rationssummen, Bedarf nach Faustzahlen (650-kg-Kuh: 37,7 MJ NEL + 3,3 MJ je kg Milch; 445 g nXP + 86 g je kg Milch), Austauschverfahren über NEL + Rohprotein, IOFC, Benchmark, Kennzahlen-Ampeln.
 
 ## Ausbaustufen (Roadmap)
 
-Der Prototyp zeigt den Funktionsumfang; für den Echtbetrieb mit 200 Kunden fehlen:
+Der Prototyp zeigt den vollen Funktionsumfang lokal; für den Echtbetrieb mit 200 Kunden fehlen:
 
-1. **Backend + Login**: je Kunde ein Zugang, der nur den eigenen Betrieb zeigt; der Berater sieht alle. (z. B. Supabase/PostgreSQL — Datenmodell ist in `data.js` bereits angelegt.)
-2. **LKV-Anbindung**: Milchkontrolldaten automatisch statt händisch übernehmen (RDV-Schnittstelle).
-3. **Futteranalysen**: Laborbefunde (LUFA/Futtermittellabor) je Betrieb hochladen; eigene Silage-Analysewerte ersetzen die Tabellenwerte im Rationscheck.
-4. **Benachrichtigungen**: Push/WhatsApp bei neuen Berichten, Terminerinnerungen, Preisalarm („Rapsschrot wieder preiswürdig").
-5. **PDF-Export** der Besuchsberichte — ersetzt die heutige schriftliche Zusammenfassung per Mail.
-6. **Offline-Fähigkeit** (PWA): im Stall gibt es nicht überall Empfang; Berichte offline erfassen, später synchronisieren.
+1. **Backend + Login**: je Kunde ein Zugang, der genau das Kundenportal seines Betriebs zeigt; der Berater sieht alles (z. B. Supabase/PostgreSQL — das Datenmodell ist in `data.js` bereits angelegt).
+2. **LKV-Anbindung**: Milchkontrolldaten automatisch übernehmen (RDV-Schnittstelle) statt händisch nachzutragen — auch Einzeltierdaten für Laktationsgruppen-Auswertung.
+3. **Benachrichtigungen**: Push/WhatsApp bei neuem Bericht, Terminerinnerung, Preisalarm („Rapsschrot wieder preiswürdig"), Kennzahlen-Alarm direkt an den Kunden.
+4. **PDF-Export** der Besuchsberichte — ersetzt die heutige schriftliche Zusammenfassung per Mail.
+5. **Offline-Fähigkeit** (PWA): im Stall gibt es nicht überall Empfang; Berichte offline erfassen, später synchronisieren.
+6. **Foto-Dokumentation** am Besuchsbericht (Silo-Anschnitt, Kot, Futtertisch) und Ablage von Laborbefunden als Datei.
+7. **Sammelbestellung/Preisbörse**: aktuelle Zukaufspreise der Region teilen — mit 200 Betrieben entsteht echte Markttransparenz.
 
 ## Hinweis
 

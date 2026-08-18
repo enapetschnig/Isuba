@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isuba Beraterapp</title>
+<meta name="description" content="Die App für unabhängige Milchviehfütterungs-Beratung: Betriebsübersicht, Futtermittelvergleich, Rationscheck und Besuchsberichte.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232F5D3A'/%3E%3Ctext x='16' y='23' font-family='Arial' font-size='19' font-weight='bold' fill='white' text-anchor='middle'%3EI%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="shell">
+
+  <aside class="sidenav">
+    <div class="logo">
+      <span class="logo-mark">I</span>
+      <div>
+        <strong>ISUBA</strong>
+        <small>Unabhängige Fütterungsberatung</small>
+      </div>
+    </div>
+    <nav id="nav">
+      <a href="#/" data-route="dashboard"><span class="nav-ico">◫</span> Übersicht</a>
+      <a href="#/betriebe" data-route="betriebe"><span class="nav-ico">⌂</span> Betriebe</a>
+      <a href="#/vergleich" data-route="vergleich"><span class="nav-ico">⇄</span> Futtermittelvergleich</a>
+      <a href="#/ration" data-route="ration"><span class="nav-ico">Σ</span> Rationscheck</a>
+      <a href="#/bericht" data-route="bericht"><span class="nav-ico">✎</span> Besuchsbericht</a>
+      <a href="#/wissen" data-route="wissen"><span class="nav-ico">✱</span> Wissen</a>
+    </nav>
+    <div class="sidenav-foot">
+      <small>Ing. Jonas Schiffer<br>schiffer@isuba.at</small>
+    </div>
+  </aside>
+
+  <main id="main" class="content" tabindex="-1"></main>
+
+</div>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

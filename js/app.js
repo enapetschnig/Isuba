@@ -390,7 +390,27 @@
         <a class="btn" href="#/betriebe/neu">+ Betrieb anlegen</a>
       </div>
     </div>
-    <div class="card table-wrap">
+    <div class="betriebe-cards">
+      ${BETRIEBE.map(b => {
+        const m = letzteMK(b);
+        const a = alerts(b);
+        const status = a.some(x => x.stufe === "crit") ? `<span class="pill pill-crit">kritisch</span>`
+          : a.length ? `<span class="pill pill-warn">${a.length} Hinweis${a.length > 1 ? "e" : ""}</span>`
+          : m ? `<span class="pill pill-ok">unauffällig</span>` : `<span class="pill pill-neutral">neu</span>`;
+        return `<div class="b-card" data-such="${esc((b.name + " " + b.ort + " " + b.leiter).toLowerCase())}" data-href="#/betriebe/${b.id}">
+          <div>
+            <strong>${esc(b.name)}</strong><br>
+            <small>${esc(b.ort)} · ${b.kuehe} Kühe · ${esc(b.system)}</small><br>
+            <span style="display:inline-block;margin-top:5px">${status}</span>
+          </div>
+          <div class="b-card-kpi">
+            <strong>${m ? fmt(m.milch) : "–"}</strong> <small>kg</small><br>
+            <small>${m ? "Harnstoff " + fmt(m.harnstoff, 0) : "keine Daten"}</small>
+          </div>
+        </div>`;
+      }).join("")}
+    </div>
+    <div class="card table-wrap betriebe-tabelle-wrap">
       <table id="betriebe-tabelle">
         <thead><tr>
           <th>Betrieb</th><th>Ort</th><th class="num">Kühe</th><th>System</th>
@@ -419,11 +439,11 @@
 
   function initBetriebe() {
     const eingabe = $("#suche");
-    const zeilen = Array.from(main.querySelectorAll("tr[data-such]"));
-    zeilen.forEach(tr => tr.addEventListener("click", () => { location.hash = tr.dataset.href; }));
+    const eintraege = Array.from(main.querySelectorAll("[data-such]"));
+    eintraege.forEach(el => el.addEventListener("click", () => { location.hash = el.dataset.href; }));
     if (eingabe) eingabe.addEventListener("input", () => {
       const q = eingabe.value.trim().toLowerCase();
-      zeilen.forEach(tr => { tr.style.display = tr.dataset.such.includes(q) ? "" : "none"; });
+      eintraege.forEach(el => { el.style.display = el.dataset.such.includes(q) ? "" : "none"; });
     });
   }
 
@@ -1127,13 +1147,17 @@
     window.scrollTo(0, 0);
   }
 
-  const resetKnopf = $("#demo-reset");
-  if (resetKnopf) resetKnopf.addEventListener("click", () => {
+  document.querySelectorAll(".demo-reset").forEach(knopf => knopf.addEventListener("click", () => {
     if (confirm("Alle lokalen Eingaben (Betriebe, Preise, Berichte) verwerfen und Demo-Daten neu laden?")) {
       ["betriebe.v2", "preise", "berichte", "milchpreis"].forEach(k => store.del(k));
       location.reload();
     }
-  });
+  }));
+
+  // Offline-Fähigkeit: App-Shell über Service Worker cachen (nur bei http/https)
+  if ("serviceWorker" in navigator && /^https?:$/.test(location.protocol)) {
+    navigator.serviceWorker.register("sw.js").catch(() => {});
+  }
 
   window.addEventListener("hashchange", navigiereMitScroll);
   navigiere();

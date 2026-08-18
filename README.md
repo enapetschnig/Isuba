@@ -39,6 +39,21 @@ python3 -m http.server 8000   # dann http://localhost:8000 öffnen
 
 Oder `index.html` direkt im Browser öffnen. Der Knopf **„Demo zurücksetzen"** unten in der Navigation verwirft alle lokalen Eingaben und lädt die Beispieldaten neu.
 
+## Mobile-first & Installation am Handy
+
+Die App ist primär für das Handy gebaut — dort, wo Beratung stattfindet: im Stall.
+
+- **App-Bar** oben mit Isuba-Marke, **Tab-Bar** unten mit Daumen-erreichbarer Navigation, Touch-Ziele mindestens 44 px, Eingabefelder ohne iOS-Auto-Zoom
+- Betriebsliste am Handy als **Karten** mit den wichtigsten Kennzahlen, am Desktop als vollständige Tabelle
+- **Als App installierbar (PWA)**: Am Handy im Browser „Zum Startbildschirm hinzufügen" — die App startet dann im Vollbild mit eigenem Icon. Ein Service Worker hält die App-Shell **offline** verfügbar (im Stall gibt es nicht überall Empfang). Voraussetzung: Auslieferung über HTTPS.
+
+## Branding
+
+Die App trägt ein eigenständiges **Isuba-Branding v1**: Milchtropfen-Marke, Wortmarke „isuba", Fichtengrün `#275C3B` auf warmem Steingrund, Stroh-Gold als Akzent. Da die Original-CI von isuba.at aus dieser Umgebung nicht abrufbar war, ist das Branding bewusst zentral austauschbar:
+
+- **Farben**: ein Token-Block am Anfang von `css/style.css` (`--brand`, `--accent`, `--bg` …) — einmal tauschen, die ganze App zieht mit
+- **Logo**: Milchtropfen-SVG in `index.html` (2 Stellen) und `assets/icon.svg` ersetzen
+
 ## Technik
 
 - **Stack**: HTML + CSS + Vanilla-JavaScript, keine Frameworks, kein Build-Schritt. Läuft auf jedem Handy im Stall (responsiv, mobile Tab-Bar), helles und dunkles Farbschema.
@@ -53,7 +68,7 @@ Der Prototyp zeigt den vollen Funktionsumfang lokal; für den Echtbetrieb mit 20
 2. **LKV-Anbindung**: Milchkontrolldaten automatisch übernehmen (RDV-Schnittstelle) statt händisch nachzutragen — auch Einzeltierdaten für Laktationsgruppen-Auswertung.
 3. **Benachrichtigungen**: Push/WhatsApp bei neuem Bericht, Terminerinnerung, Preisalarm („Rapsschrot wieder preiswürdig"), Kennzahlen-Alarm direkt an den Kunden.
 4. **PDF-Export** der Besuchsberichte — ersetzt die heutige schriftliche Zusammenfassung per Mail.
-5. **Offline-Fähigkeit** (PWA): im Stall gibt es nicht überall Empfang; Berichte offline erfassen, später synchronisieren.
+5. **Offline-Synchronisierung**: Die App-Shell läuft bereits offline (Service Worker); im Echtbetrieb müssen zusätzlich Eingaben offline erfasst und später mit dem Backend synchronisiert werden.
 6. **Foto-Dokumentation** am Besuchsbericht (Silo-Anschnitt, Kot, Futtertisch) und Ablage von Laborbefunden als Datei.
 7. **Sammelbestellung/Preisbörse**: aktuelle Zukaufspreise der Region teilen — mit 200 Betrieben entsteht echte Markttransparenz.
 

@@ -2,36 +2,56 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Isuba Beraterapp</title>
-<meta name="description" content="Die App für unabhängige Milchviehfütterungs-Beratung: Betriebsübersicht, Futtermittelvergleich, Rationscheck und Besuchsberichte.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232F5D3A'/%3E%3Ctext x='16' y='23' font-family='Arial' font-size='19' font-weight='bold' fill='white' text-anchor='middle'%3EI%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Die App für unabhängige Milchviehfütterungs-Beratung: Betriebsakten, Futtermittelvergleich, Rationscheck und Besuchsberichte.">
+<meta name="theme-color" content="#275C3B">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Isuba">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="assets/icon.svg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23275C3B'/%3E%3Cpath d='M32 10 C32 10 18 30 18 40 a14 14 0 0 0 28 0 C46 30 32 10 32 10 Z' fill='%23F7F3E8'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+<header class="appbar">
+  <svg class="appbar-mark" viewBox="0 0 64 64" aria-hidden="true">
+    <path d="M32 10 C32 10 18 30 18 40 a14 14 0 0 0 28 0 C46 30 32 10 32 10 Z" fill="currentColor"/>
+  </svg>
+  <div class="appbar-wort">
+    <strong>isuba</strong>
+    <small>Unabhängige Fütterungsberatung</small>
+  </div>
+  <button type="button" class="demo-reset appbar-reset" title="Demo zurücksetzen" aria-label="Demo zurücksetzen">↺</button>
+</header>
+
 <div class="shell">
 
   <aside class="sidenav">
     <div class="logo">
-      <span class="logo-mark">I</span>
+      <span class="logo-mark">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 10 C32 10 18 30 18 40 a14 14 0 0 0 28 0 C46 30 32 10 32 10 Z" fill="currentColor"/></svg>
+      </span>
       <div>
-        <strong>ISUBA</strong>
+        <strong>isuba</strong>
         <small>Unabhängige Fütterungsberatung</small>
       </div>
     </div>
     <nav id="nav">
-      <a href="#/" data-route="dashboard"><span class="nav-ico">◫</span> Übersicht</a>
-      <a href="#/betriebe" data-route="betriebe"><span class="nav-ico">⌂</span> Betriebe</a>
-      <a href="#/vergleich" data-route="vergleich"><span class="nav-ico">⇄</span> Futtermittelvergleich</a>
-      <a href="#/ration" data-route="ration"><span class="nav-ico">Σ</span> Rationscheck</a>
-      <a href="#/bericht" data-route="bericht"><span class="nav-ico">✎</span> Besuchsbericht</a>
-      <a href="#/wissen" data-route="wissen"><span class="nav-ico">✱</span> Wissen</a>
+      <a href="#/" data-route="dashboard"><span class="nav-ico">◫</span> <span class="lbl-long lbl-short">Übersicht</span></a>
+      <a href="#/betriebe" data-route="betriebe"><span class="nav-ico">⌂</span> <span class="lbl-long lbl-short">Betriebe</span></a>
+      <a href="#/vergleich" data-route="vergleich"><span class="nav-ico">⇄</span> <span class="lbl-long">Futtermittelvergleich</span><span class="lbl-short">Vergleich</span></a>
+      <a href="#/ration" data-route="ration"><span class="nav-ico">Σ</span> <span class="lbl-long">Rationscheck</span><span class="lbl-short">Ration</span></a>
+      <a href="#/bericht" data-route="bericht"><span class="nav-ico">✎</span> <span class="lbl-long">Besuchsbericht</span><span class="lbl-short">Bericht</span></a>
+      <a href="#/wissen" data-route="wissen"><span class="nav-ico">✱</span> <span class="lbl-long lbl-short">Wissen</span></a>
     </nav>
     <div class="sidenav-foot">
       <small>Ing. Jonas Schiffer<br>schiffer@isuba.at</small><br>
-      <button id="demo-reset" type="button" class="btn-ghost btn-sm" style="margin-top:8px">Demo zurücksetzen</button>
+      <button type="button" class="btn-ghost btn-sm demo-reset" style="margin-top:8px">Demo zurücksetzen</button>
     </div>
   </aside>
 

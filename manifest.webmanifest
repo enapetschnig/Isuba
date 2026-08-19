@@ -1,0 +1,16 @@
+{
+  "name": "ISUBA — Unabhängige Fütterungsberatung",
+  "short_name": "Isuba",
+  "description": "Betriebsakten, Futtermittelvergleich, Rationscheck und Besuchsberichte für die unabhängige Milchviehfütterungs-Beratung.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ECECEA",
+  "theme_color": "#FFFFFF",
+  "lang": "de",
+  "icons": [
+    { "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}
